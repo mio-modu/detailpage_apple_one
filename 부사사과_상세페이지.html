@@ -3,605 +3,491 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>부사 사과 실속형 - lumain</title>
+  <title>부사 사과 실속형 — lumain</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { width: 100%; display: block; }
 
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background: #f5f5f5;
-      color: #2d2d2d;
+      background: #EBEBEB;
+      color: #1a1a1a;
       display: flex;
       justify-content: center;
     }
-
-    .page-wrap {
+    .page {
       width: 100%;
       max-width: 600px;
       background: #fff;
     }
 
-    img { width: 100%; display: block; }
-
-    /* ── 공통 섹션 ── */
-    .section {
-      padding: 48px 24px;
-    }
-    .section-alt {
-      background: #fff8f9;
-    }
-    .section-dark {
-      background: #c0392b;
-      color: #fff;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #e84e6c;
-      margin-bottom: 10px;
-    }
-    .section-label.white { color: #ffb3c1; }
-
-    .section-title {
-      font-size: 22px;
-      font-weight: 900;
-      line-height: 1.4;
-      margin-bottom: 8px;
-      color: #1a1a1a;
-    }
-    .section-title.white { color: #fff; }
-
-    .section-desc {
-      font-size: 13px;
-      color: #777;
-      line-height: 1.8;
-    }
-    .section-desc.white { color: rgba(255,255,255,0.85); }
-
-    .divider {
-      width: 40px;
-      height: 3px;
-      background: #e84e6c;
-      border-radius: 2px;
-      margin: 12px 0 20px;
-    }
-    .divider.white { background: rgba(255,255,255,0.5); }
-
-    /* ── 1. 메인 배너 ── */
-    .banner {
+    /* ═══ HERO ═══ */
+    .hero {
+      background: linear-gradient(170deg, #140606 0%, #3B0D0D 55%, #5A1A1A 100%);
+      padding: 48px 24px 0;
       position: relative;
-      background: linear-gradient(160deg, #fff0f3 0%, #ffe4ec 100%);
-      padding: 40px 24px 0;
       overflow: hidden;
     }
-    .banner::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: rgba(232, 78, 108, 0.08);
+    .hero-c1 {
+      position: absolute; top: -70px; right: -70px;
+      width: 240px; height: 240px; border-radius: 50%;
+      background: rgba(220,60,60,0.1);
     }
-    .banner-badge {
+    .hero-c2 {
+      position: absolute; bottom: 100px; left: -50px;
+      width: 160px; height: 160px; border-radius: 50%;
+      background: rgba(220,60,60,0.06);
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(220,60,60,0.18);
+      border: 1px solid rgba(220,60,60,0.35);
+      color: #FF9EAE;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 18px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px;
+      border-radius: 50%; background: #E84E6C;
+    }
+    .hero-tag {
       display: inline-block;
-      background: #e84e6c;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
+      background: #C0392B; color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 4px; margin-bottom: 14px;
     }
-    .banner-sub {
-      font-size: 13px;
-      color: #e84e6c;
-      font-weight: 500;
-      margin-bottom: 6px;
-      letter-spacing: 1px;
+    .hero-title {
+      font-size: 36px; font-weight: 900;
+      color: #fff; line-height: 1.2;
+      letter-spacing: -0.5px; margin-bottom: 14px;
     }
-    .banner-title {
-      font-size: 32px;
-      font-weight: 900;
-      color: #1a1a1a;
-      line-height: 1.25;
-      margin-bottom: 8px;
+    .hero-title em {
+      display: block; font-style: normal; color: #FF8FA3;
     }
-    .banner-title span { color: #e84e6c; }
-    .banner-copy {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 28px;
-      font-weight: 400;
+    .hero-sub {
+      font-size: 13px; color: rgba(255,255,255,0.55);
+      line-height: 1.8; margin-bottom: 28px;
     }
-    .banner-info {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
+    .hero-meta {
+      display: flex; gap: 0; margin-bottom: 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; overflow: hidden;
     }
-    .banner-info-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+    .hero-meta-item {
+      flex: 1; padding: 14px 10px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
     }
-    .banner-info-item .label {
-      font-size: 10px;
-      color: #aaa;
-      font-weight: 500;
-      letter-spacing: 1px;
+    .hero-meta-item:last-child { border-right: none; }
+    .hero-meta-item .lbl {
+      font-size: 9px; color: rgba(255,255,255,0.35);
+      letter-spacing: 1.5px; font-weight: 500; margin-bottom: 4px;
     }
-    .banner-info-item .value {
-      font-size: 13px;
-      font-weight: 700;
-      color: #2d2d2d;
+    .hero-meta-item .val {
+      font-size: 12px; font-weight: 700; color: #fff;
     }
-    .banner-img { margin: 0 -24px; }
+    .hero-img { margin: 0 -24px; position: relative; z-index: 1; }
 
-    /* ── 2. 특별한 이유 3가지 ── */
-    .reason-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 24px;
+    /* ═══ TRUST STRIP ═══ */
+    .trust-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: #0E0404;
     }
-    .reason-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      border: 1.5px solid #ffe0e8;
-      box-shadow: 0 2px 12px rgba(232,78,108,0.06);
+    .trust-item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px;
+      padding: 18px 8px;
+      border-right: 1px solid rgba(255,255,255,0.05);
     }
-    .reason-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #e84e6c, #ff8fa3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-    .reason-text .title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-    }
-    .reason-text .desc {
-      font-size: 12px;
-      color: #888;
-      line-height: 1.6;
+    .trust-item:last-child { border-right: none; }
+    .trust-item .ti { font-size: 20px; }
+    .trust-item .tl {
+      font-size: 9px; font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.5px; text-align: center; line-height: 1.4;
     }
 
-    /* ── 3. 스토리 STEP ── */
-    .story-bg {
-      background: linear-gradient(160deg, #fff8f9 0%, #fff0f3 100%);
+    /* ═══ CREDENTIAL ═══ */
+    .credential { padding: 44px 24px 36px; }
+    .eyebrow {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 3px; color: #C0392B; margin-bottom: 10px;
     }
-    .step-list {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+    .eyebrow.dim { color: rgba(255,255,255,0.35); }
+    .cred-title {
+      font-size: 25px; font-weight: 900;
+      line-height: 1.35; color: #1a1a1a; margin-bottom: 16px;
     }
-    .step-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      position: relative;
-      padding-bottom: 28px;
+    .cred-title span { color: #C0392B; }
+    .cred-body {
+      font-size: 13px; color: #666;
+      line-height: 1.9; margin-bottom: 22px;
     }
-    .step-item:last-child { padding-bottom: 0; }
-    .step-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 44px;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, #e84e6c, #ffb3c1);
-    }
-    .step-num {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #e84e6c;
-      color: #fff;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      z-index: 1;
-    }
-    .step-body .title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-      padding-top: 8px;
-    }
-    .step-body .desc {
-      font-size: 12px;
-      color: #888;
-      line-height: 1.7;
-    }
-    .story-closing {
-      margin-top: 32px;
-      background: #e84e6c;
-      border-radius: 16px;
-      padding: 18px 20px;
-      text-align: center;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+    .cred-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cred-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: #FFF0F3; border: 1px solid #FFD0DA;
+      color: #C0392B; font-size: 11px; font-weight: 700;
+      padding: 6px 13px; border-radius: 6px;
     }
 
-    /* ── 4. 실속형 안내 ── */
-    .notice-box {
-      background: #fff8f9;
-      border: 1.5px solid #ffccd5;
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 20px;
+    /* ═══ STATS ═══ */
+    .stats {
+      background: #C0392B;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      padding: 28px 16px;
     }
-    .notice-box .notice-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #e84e6c;
-      margin-bottom: 10px;
+    .stat {
+      text-align: center; padding: 0 8px;
+      border-right: 1px solid rgba(255,255,255,0.18);
     }
-    .notice-box ul {
-      padding-left: 16px;
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 30px; font-weight: 900;
+      color: #fff; line-height: 1; margin-bottom: 5px;
     }
-    .notice-box ul li {
-      font-size: 12px;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 4px;
+    .stat-num sub { font-size: 14px; font-weight: 400; vertical-align: baseline; }
+    .stat-lbl {
+      font-size: 10px; color: rgba(255,255,255,0.6);
+      letter-spacing: 0.5px; font-weight: 500;
     }
-    .caution-tag {
+
+    /* ═══ SECTION BASE ═══ */
+    .sec { padding: 48px 24px; }
+    .sec-alt { background: #FAFAFA; }
+    .sec-dark { background: #111; }
+
+    .sec-title {
+      font-size: 24px; font-weight: 900;
+      line-height: 1.35; color: #1a1a1a; margin-bottom: 6px;
+    }
+    .sec-title.w { color: #fff; }
+
+    .rule {
+      width: 32px; height: 3px;
+      background: #C0392B; border-radius: 2px;
+      margin: 10px 0 22px;
+    }
+    .rule.dim { background: rgba(255,255,255,0.22); }
+
+    /* ═══ REASON CARDS ═══ */
+    .reasons { display: flex; flex-direction: column; gap: 12px; }
+    .reason {
+      display: grid; grid-template-columns: 60px 1fr;
+      background: #fff; border-radius: 16px; overflow: hidden;
+      border: 1px solid #EEE0E2;
+      box-shadow: 0 2px 14px rgba(192,57,43,0.05);
+    }
+    .r-num {
+      background: linear-gradient(180deg, #C0392B, #922B21);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .r-num span {
+      font-size: 26px; font-weight: 900;
+      color: rgba(255,255,255,0.18); letter-spacing: -1px;
+    }
+    .r-body { padding: 18px 16px; }
+    .r-title {
+      font-size: 15px; font-weight: 700;
+      color: #1a1a1a; margin-bottom: 5px;
+    }
+    .r-desc { font-size: 12px; color: #888; line-height: 1.65; }
+    .r-chip {
       display: inline-block;
-      background: #fff0f3;
-      border: 1px solid #ffb3c1;
-      color: #e84e6c;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-top: 12px;
+      background: #FFF0F3; color: #C0392B;
+      font-size: 11px; font-weight: 700;
+      padding: 3px 9px; border-radius: 4px; margin-top: 7px;
     }
 
-    /* ── 5. 사이즈 안내 ── */
-    .size-note {
-      background: #fff8f9;
-      border-left: 3px solid #e84e6c;
-      padding: 12px 16px;
-      border-radius: 0 10px 10px 0;
-      margin-top: 20px;
-      font-size: 12px;
-      color: #666;
-      line-height: 1.7;
+    /* ═══ STORY STEPS ═══ */
+    .steps { margin-top: 24px; }
+    .step {
+      display: grid; grid-template-columns: 48px 1fr;
+      gap: 16px; padding-bottom: 30px;
+    }
+    .step:last-child { padding-bottom: 0; }
+    .step-l { display: flex; flex-direction: column; align-items: center; }
+    .step-dot {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: #C0392B; color: #fff;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      line-height: 1.1; flex-shrink: 0; z-index: 1;
+    }
+    .step-dot .sn { font-size: 7px; opacity: 0.65; font-weight: 600; }
+    .step-dot .sv { font-size: 15px; font-weight: 900; }
+    .step-line {
+      flex: 1; width: 2px; margin-top: 6px; min-height: 16px;
+      background: linear-gradient(to bottom, #C0392B, #F4AFA8);
+    }
+    .step:last-child .step-line { display: none; }
+    .step-r { padding-top: 10px; }
+    .step-r .s-ttl {
+      font-size: 15px; font-weight: 700;
+      color: #1a1a1a; margin-bottom: 4px;
+    }
+    .step-r .s-desc { font-size: 12px; color: #888; line-height: 1.7; }
+    .story-cta {
+      background: linear-gradient(135deg, #C0392B, #922B21);
+      border-radius: 16px; padding: 20px;
+      text-align: center; color: #fff;
+      font-size: 14px; font-weight: 700;
+      margin-top: 28px; letter-spacing: 0.3px;
     }
 
-    /* ── 6. 포장 안내 ── */
-    .packaging-card {
-      background: linear-gradient(135deg, #e84e6c, #c0392b);
-      border-radius: 20px;
-      padding: 32px 24px;
-      text-align: center;
-      color: #fff;
-      margin-top: 0;
+    /* ═══ USAGE (dark) ═══ */
+    .usage-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-top: 20px;
     }
-    .packaging-card .icon { font-size: 44px; margin-bottom: 12px; }
-    .packaging-card .title {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 10px;
+    .u-card {
+      background: #1C1C1C; border-radius: 14px;
+      overflow: hidden; border: 1px solid #282828;
     }
-    .packaging-card .desc {
-      font-size: 13px;
-      line-height: 1.8;
-      opacity: 0.9;
-    }
-    .packaging-card .note {
-      margin-top: 14px;
-      font-size: 11px;
-      opacity: 0.7;
-      font-style: italic;
-    }
-
-    /* ── 7. 보관 꿀팁 ── */
-    .tip-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 24px;
-    }
-    .tip-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      border: 1.5px solid #ffe0e8;
-    }
-    .tip-card .tip-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .tip-card .tip-icon {
-      font-size: 24px;
-    }
-    .tip-card .tip-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #e84e6c;
-    }
-    .tip-card .tip-body {
-      font-size: 12px;
-      color: #666;
-      line-height: 1.8;
-    }
-    .tip-card .tip-body li {
-      list-style: none;
-      padding-left: 14px;
-      position: relative;
-      margin-bottom: 4px;
-    }
-    .tip-card .tip-body li::before {
-      content: '·';
-      position: absolute;
-      left: 4px;
-      color: #e84e6c;
-      font-weight: 900;
-    }
-
-    /* ── 8. CS 안내 ── */
-    .cs-section { background: #fff8f9; }
-
-    /* ── 옵션 섹션 ── */
-    .option-section { background: #1a1a1a; }
-    .option-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .option-card {
-      background: #2a2a2a;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1.5px solid #333;
-    }
-    .option-card.featured {
-      border-color: #e84e6c;
+    .u-card.wide {
       grid-column: 1 / -1;
+      display: grid; grid-template-columns: 1fr 1fr;
     }
-    .option-card img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
+    .u-card img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .u-card.wide img { aspect-ratio: unset; }
+    .u-info { padding: 14px; }
+    .u-card.wide .u-info {
+      display: flex; flex-direction: column; justify-content: center;
     }
-    .option-card.featured img {
-      aspect-ratio: 16/7;
-    }
-    .option-info {
-      padding: 14px;
-    }
-    .option-badge {
+    .u-tag {
       display: inline-block;
-      background: #e84e6c;
-      color: #fff;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 2px 8px;
-      border-radius: 20px;
-      margin-bottom: 6px;
+      background: #C0392B; color: #fff;
+      font-size: 8px; font-weight: 700; letter-spacing: 1.5px;
+      padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;
     }
-    .option-name {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 2px;
+    .u-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .u-desc { font-size: 11px; color: #666; line-height: 1.6; }
+
+    /* ═══ NOTICE ═══ */
+    .notice {
+      background: #FAFAFA; border: 1.5px solid #F0D8DC;
+      border-radius: 14px; padding: 18px 20px; margin-top: 18px;
     }
-    .option-price {
-      font-size: 15px;
-      font-weight: 900;
-      color: #e84e6c;
+    .notice.warn { background: #FFF7F7; border-color: #EFA0A0; }
+    .notice-head {
+      font-size: 13px; font-weight: 700;
+      color: #C0392B; margin-bottom: 10px;
     }
-    .option-detail {
-      font-size: 11px;
-      color: #888;
-      margin-top: 2px;
+    .notice.warn .notice-head { color: #8B1A1A; }
+    .notice ul { padding: 0; list-style: none; }
+    .notice ul li {
+      font-size: 12px; color: #555;
+      line-height: 1.8; padding-left: 14px;
+      position: relative; margin-bottom: 2px;
+    }
+    .notice ul li::before {
+      content: '—'; position: absolute; left: 0;
+      color: #C0392B; font-size: 10px; top: 1px;
+    }
+    .alert-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #FFF0F3; border: 1px solid #F0B8C4;
+      color: #C0392B; font-size: 10px; font-weight: 700;
+      padding: 4px 12px; border-radius: 20px; margin-top: 14px;
     }
 
-    /* ── 하단 배너 ── */
-    .footer-banner {
-      background: linear-gradient(160deg, #1a1a1a, #2d2d2d);
-      padding: 48px 24px;
-      text-align: center;
+    /* ═══ SIZE NOTE ═══ */
+    .size-note {
+      background: #FFF8F9;
+      border-left: 3px solid #C0392B;
+      padding: 14px 16px;
+      border-radius: 0 10px 10px 0;
+      margin-top: 18px;
+      font-size: 12px; color: #666; line-height: 1.75;
     }
-    .footer-brand {
-      font-size: 28px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
+
+    /* ═══ PACKAGING ═══ */
+    .pkg {
+      background: linear-gradient(135deg, #140606 0%, #3B0D0D 100%);
+      border-radius: 20px; padding: 36px 24px;
+      text-align: center; color: #fff; position: relative; overflow: hidden;
     }
-    .footer-brand span { color: #e84e6c; }
-    .footer-copy {
+    .pkg::before {
+      content: '📦'; position: absolute;
+      top: -15px; right: -15px;
+      font-size: 110px; opacity: 0.04;
+    }
+    .pkg-icon { font-size: 48px; margin-bottom: 14px; }
+    .pkg-title { font-size: 20px; font-weight: 900; margin-bottom: 12px; }
+    .pkg-desc { font-size: 13px; line-height: 1.85; color: rgba(255,255,255,0.7); }
+    .pkg-note { margin-top: 14px; font-size: 11px; color: rgba(255,255,255,0.35); }
+
+    /* ═══ TIPS ═══ */
+    .tips { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .tip {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: #fff; border-radius: 14px; padding: 20px;
+      border: 1.5px solid #F0E0E2;
+    }
+    .tip-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: #FFF0F3; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .tip-body .t-ttl {
+      font-size: 14px; font-weight: 700;
+      color: #C0392B; margin-bottom: 8px;
+    }
+    .tip-body ul { padding: 0; list-style: none; }
+    .tip-body ul li {
+      font-size: 12px; color: #666; line-height: 1.75;
+      padding-left: 12px; position: relative; margin-bottom: 2px;
+    }
+    .tip-body ul li::before {
+      content: '·'; position: absolute; left: 2px;
+      color: #C0392B; font-weight: 900;
+    }
+
+    /* ═══ FOOTER ═══ */
+    .foot {
+      background: #0A0202;
+      padding: 52px 24px; text-align: center;
+    }
+    .foot-logo {
+      font-size: 30px; font-weight: 900;
+      color: #fff; letter-spacing: 4px; margin-bottom: 10px;
+    }
+    .foot-logo span { color: #E84E6C; }
+    .foot-rule {
+      width: 36px; height: 2px;
+      background: #C0392B; margin: 14px auto;
+    }
+    .foot-copy {
       font-size: 12px;
-      color: #888;
-      line-height: 1.8;
-    }
-    .footer-line {
-      width: 40px;
-      height: 2px;
-      background: #e84e6c;
-      margin: 16px auto;
+      color: rgba(255,255,255,0.3); line-height: 1.9;
     }
 
-    /* ── 구분선 ── */
-    .hr { height: 8px; background: #f0f0f0; }
+    .hr { height: 6px; background: #F0F0F0; }
   </style>
 </head>
 <body>
-<div class="page-wrap">
+<div class="page">
 
-  <!-- ════════════════════════════════
-       1. 상단 메인 배너
-  ════════════════════════════════ -->
-  <section class="banner">
-    <div class="banner-badge">FREE SHIPPING · 무료배송</div>
-    <p class="banner-sub">매일 먹는 건강한 맛</p>
-    <h1 class="banner-title">가정용<br /><span>부사 사과</span></h1>
-    <p class="banner-copy">부사사과가 특별한 이유!</p>
-    <div class="banner-info">
-      <div class="banner-info-item">
-        <span class="label">원산지</span>
-        <span class="value">대한민국</span>
+  <!-- ══════ HERO ══════ -->
+  <section class="hero">
+    <div class="hero-c1"></div>
+    <div class="hero-c2"></div>
+    <div class="hero-eyebrow">PREMIUM BUSA APPLE · 산지직송</div>
+    <div class="hero-tag">실속형</div>
+    <h1 class="hero-title">
+      농부의 손으로 고른<br />
+      <em>부사 사과</em>
+    </h1>
+    <p class="hero-sub">
+      겉모습보다 맛으로 승부합니다.<br />
+      꼼꼼히 선별된 산지 직송 부사사과를 만나보세요.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="lbl">원산지</div>
+        <div class="val">대한민국</div>
       </div>
-      <div class="banner-info-item">
-        <span class="label">배송</span>
-        <span class="value">무료배송</span>
+      <div class="hero-meta-item">
+        <div class="lbl">배송</div>
+        <div class="val">무료배송</div>
       </div>
-      <div class="banner-info-item">
-        <span class="label">발주 마감</span>
-        <span class="value">오전 09:30</span>
+      <div class="hero-meta-item">
+        <div class="lbl">발주마감</div>
+        <div class="val">09:30</div>
       </div>
     </div>
-    <div class="banner-img">
+    <div class="hero-img">
       <img src="images/부사 사과 - 실속형 썸네일.png" alt="부사 사과 실속형" />
     </div>
   </section>
 
-  <div class="hr"></div>
-
-  <!-- ════════════════════════════════
-       2. 특별한 이유 3가지
-  ════════════════════════════════ -->
-  <section class="section section-alt">
-    <p class="section-label">WHY BUSA APPLE</p>
-    <h2 class="section-title">부사사과가<br />특별한 이유 3가지</h2>
-    <div class="divider"></div>
-    <div class="reason-grid">
-      <div class="reason-card">
-        <div class="reason-icon">🍯</div>
-        <div class="reason-text">
-          <p class="title">고당도</p>
-          <p class="desc">14~18 BRiX의 달콤한 맛<br />자연이 담긴 풍부한 당도</p>
-        </div>
-      </div>
-      <div class="reason-card">
-        <div class="reason-icon">❄️</div>
-        <div class="reason-text">
-          <p class="title">뛰어난 저장성</p>
-          <p class="desc">실온 90일, 냉장 5개월까지<br />오랫동안 신선하게 즐기세요</p>
-        </div>
-      </div>
-      <div class="reason-card">
-        <div class="reason-icon">🍎</div>
-        <div class="reason-text">
-          <p class="title">조화로운 맛</p>
-          <p class="desc">남녀노소 누구나 즐길 수 있는<br />달콤하고 아삭한 국민 과일</p>
-        </div>
-      </div>
+  <!-- ══════ TRUST STRIP ══════ -->
+  <div class="trust-strip">
+    <div class="trust-item">
+      <span class="ti">🌿</span>
+      <span class="tl">산지<br/>직송</span>
     </div>
-  </section>
-
-  <div class="hr"></div>
-
-  <!-- ════════════════════════════════
-       3. 부사사과 스토리
-  ════════════════════════════════ -->
-  <section class="section story-bg">
-    <p class="section-label">OUR STORY</p>
-    <h2 class="section-title">햇살 듬뿍 받고<br />자란 부사 사과</h2>
-    <div class="divider"></div>
-    <p class="section-desc">산지에서 식탁까지, 정성 가득한 4가지 과정</p>
-    <div class="step-list">
-      <div class="step-item">
-        <div class="step-num">STEP<br/>01</div>
-        <div class="step-body">
-          <p class="title">친환경 재배</p>
-          <p class="desc">비옥한 토양에서 햇살 듬뿍 받고<br />자연 그대로 키운 사과</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">STEP<br/>02</div>
-        <div class="step-body">
-          <p class="title">꼼꼼한 선별</p>
-          <p class="desc">잘 익은 사과 위주로 확인하여<br />하나하나 손으로 선별</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">STEP<br/>03</div>
-        <div class="step-body">
-          <p class="title">안전한 포장</p>
-          <p class="desc">전용 사과박스에 안전하게 포장하여<br />파손 없이 배송 준비</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">STEP<br/>04</div>
-        <div class="step-body">
-          <p class="title">신선 배송</p>
-          <p class="desc">자연의 싱싱함 그대로<br />빠르고 안전하게 배송</p>
-        </div>
-      </div>
+    <div class="trust-item">
+      <span class="ti">🚚</span>
+      <span class="tl">무료<br/>배송</span>
     </div>
-    <div class="story-closing">
-      🚚 집 앞까지 도착하는 아삭한 부사사과!
+    <div class="trust-item">
+      <span class="ti">👐</span>
+      <span class="tl">직접<br/>선별</span>
     </div>
-  </section>
+    <div class="trust-item">
+      <span class="ti">📦</span>
+      <span class="tl">안전<br/>포장</span>
+    </div>
+  </div>
 
-  <div class="hr"></div>
-
-  <!-- ════════════════════════════════
-       부사사과 활용법
-  ════════════════════════════════ -->
-  <section class="section option-section">
-    <p class="section-label white">HOW TO ENJOY</p>
-    <h2 class="section-title white">부사사과,<br />이렇게 즐겨보세요</h2>
-    <div class="divider white"></div>
-    <p style="font-size:13px; color:rgba(255,255,255,0.6); margin-bottom:20px; line-height:1.7;">
-      같은 부사사과도 용도에 따라 더 맛있게 즐길 수 있어요.<br />
-      구매하신 사과를 이렇게 활용해보세요!
+  <!-- ══════ CREDENTIAL ══════ -->
+  <section class="credential">
+    <p class="eyebrow">WHY TRUST US</p>
+    <h2 class="cred-title">겉모습이 아닌 <span>맛</span>으로<br />증명하는 부사사과</h2>
+    <p class="cred-body">
+      농부가 직접 키우고, 직접 고릅니다.<br />
+      실속형이라는 이름 뒤에는 특품과 똑같은 당도,<br />
+      똑같은 아삭함이 담겨 있습니다.<br />
+      사람이 직접 맛을 보고, AI의 도움으로 더 정확하게 연결합니다.
     </p>
-    <div class="option-grid">
-      <div class="option-card">
-        <img src="images/부사 사과 - 가정용 썸네일.png" alt="그냥 먹기" />
-        <div class="option-info">
-          <p class="option-name">그냥 먹기 딱!</p>
-          <p class="option-detail">아삭하고 달콤하게 그대로 즐기세요</p>
+    <div class="cred-badges">
+      <div class="cred-badge">✅ 맛·품질 동일</div>
+      <div class="cred-badge">🌱 친환경 재배</div>
+      <div class="cred-badge">📍 산지직송</div>
+      <div class="cred-badge">💯 당일 선별</div>
+    </div>
+  </section>
+
+  <!-- ══════ STATS ══════ -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">14<sub>~18</sub></div>
+      <div class="stat-lbl">°BRIX 당도</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">90<sub>일</sub></div>
+      <div class="stat-lbl">실온 보관</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5<sub>개월</sub></div>
+      <div class="stat-lbl">냉장 보관</div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  <!-- ══════ 특별한 이유 3가지 ══════ -->
+  <section class="sec sec-alt">
+    <p class="eyebrow">WHY BUSA APPLE</p>
+    <h2 class="sec-title">부사사과가<br />특별한 이유 3가지</h2>
+    <div class="rule"></div>
+    <div class="reasons">
+      <div class="reason">
+        <div class="r-num"><span>01</span></div>
+        <div class="r-body">
+          <p class="r-title">🍯 고당도</p>
+          <p class="r-desc">자연이 만들어낸 풍부한 단맛<br />달콤하고 아삭한 식감</p>
+          <span class="r-chip">14 ~ 18 °Brix</span>
         </div>
       </div>
-      <div class="option-card">
-        <img src="images/부사 사과 - 특품(정품) 썸네일.png" alt="선물용" />
-        <div class="option-info">
-          <p class="option-name">선물·명절용</p>
-          <p class="option-detail">예쁘게 담아 소중한 분께 드려요</p>
+      <div class="reason">
+        <div class="r-num"><span>02</span></div>
+        <div class="r-body">
+          <p class="r-title">❄️ 뛰어난 저장성</p>
+          <p class="r-desc">오랫동안 신선하게 즐길 수 있는<br />우수한 보관 능력</p>
+          <span class="r-chip">실온 90일 · 냉장 5개월</span>
         </div>
       </div>
-      <div class="option-card featured">
-        <img src="images/부사 사과 - 쥬스용 썸네일.png" alt="주스·착즙용" />
-        <div class="option-info">
-          <div class="option-badge">JUICE</div>
-          <p class="option-name">주스·착즙용</p>
-          <p class="option-detail">흠집이 있어도 맛은 그대로 — 갈아서 건강하게 한 잔</p>
+      <div class="reason">
+        <div class="r-num"><span>03</span></div>
+        <div class="r-body">
+          <p class="r-title">🍎 조화로운 맛</p>
+          <p class="r-desc">신맛과 단맛의 완벽한 균형<br />남녀노소 누구나 즐기는 국민 과일</p>
+          <span class="r-chip">온 가족이 함께</span>
         </div>
       </div>
     </div>
@@ -609,39 +495,126 @@
 
   <div class="hr"></div>
 
-  <!-- ════════════════════════════════
-       4. 실속형 부사사과 안내
-  ════════════════════════════════ -->
-  <section class="section section-alt">
-    <p class="section-label">ABOUT 실속형</p>
-    <h2 class="section-title">실속형 부사사과<br />안내</h2>
-    <div class="divider"></div>
-    <img src="images/흠집종류.png" alt="흠집 종류 안내" style="border-radius:12px; margin-bottom:20px;" />
-    <div class="notice-box">
-      <p class="notice-title">📌 실속형이란?</p>
+  <!-- ══════ STORY ══════ -->
+  <section class="sec">
+    <p class="eyebrow">OUR STORY</p>
+    <h2 class="sec-title">햇살 듬뿍 받고<br />자란 부사 사과</h2>
+    <div class="rule"></div>
+    <p style="font-size:13px; color:#999; line-height:1.7; margin-bottom:4px;">산지에서 식탁까지, 정성 가득한 4가지 과정</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-l">
+          <div class="step-dot"><span class="sn">STEP</span><span class="sv">01</span></div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-r">
+          <p class="s-ttl">친환경 재배</p>
+          <p class="s-desc">비옥한 토양에서 햇살 듬뿍 받고<br />자연 그대로 키운 사과</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-l">
+          <div class="step-dot"><span class="sn">STEP</span><span class="sv">02</span></div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-r">
+          <p class="s-ttl">꼼꼼한 선별</p>
+          <p class="s-desc">잘 익은 사과 위주로 확인하여<br />하나하나 손으로 선별</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-l">
+          <div class="step-dot"><span class="sn">STEP</span><span class="sv">03</span></div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-r">
+          <p class="s-ttl">안전한 포장</p>
+          <p class="s-desc">전용 사과박스에 안전하게 포장하여<br />파손 없이 배송 준비</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-l">
+          <div class="step-dot"><span class="sn">STEP</span><span class="sv">04</span></div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-r">
+          <p class="s-ttl">신선 배송</p>
+          <p class="s-desc">자연의 싱싱함 그대로<br />빠르고 안전하게 배송</p>
+        </div>
+      </div>
+    </div>
+    <div class="story-cta">🚚 집 앞까지 도착하는 아삭한 부사사과!</div>
+  </section>
+
+  <div class="hr"></div>
+
+  <!-- ══════ 활용법 ══════ -->
+  <section class="sec sec-dark">
+    <p class="eyebrow dim">HOW TO ENJOY</p>
+    <h2 class="sec-title w">부사사과,<br />이렇게 즐겨보세요</h2>
+    <div class="rule dim"></div>
+    <p style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:4px; line-height:1.75;">
+      구매하신 부사사과, 용도에 맞게 다양하게 활용하세요
+    </p>
+    <div class="usage-grid">
+      <div class="u-card">
+        <img src="images/부사 사과 - 가정용 썸네일.png" alt="그냥 먹기" />
+        <div class="u-info">
+          <div class="u-tag">FRESH</div>
+          <p class="u-name">그냥 먹기 딱!</p>
+          <p class="u-desc">아삭하고 달콤하게 그대로</p>
+        </div>
+      </div>
+      <div class="u-card">
+        <img src="images/부사 사과 - 특품(정품) 썸네일.png" alt="선물용" />
+        <div class="u-info">
+          <div class="u-tag">GIFT</div>
+          <p class="u-name">선물·명절용</p>
+          <p class="u-desc">소중한 분께 정성을</p>
+        </div>
+      </div>
+      <div class="u-card wide">
+        <img src="images/부사 사과 - 쥬스용 썸네일.png" alt="주스용" />
+        <div class="u-info">
+          <div class="u-tag">JUICE</div>
+          <p class="u-name">주스·착즙용</p>
+          <p class="u-desc">흠집이 있어도 맛은 그대로<br />갈아서 건강하게 한 잔</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr"></div>
+
+  <!-- ══════ 실속형 안내 ══════ -->
+  <section class="sec sec-alt">
+    <p class="eyebrow">ABOUT 실속형</p>
+    <h2 class="sec-title">실속형 부사사과 안내</h2>
+    <div class="rule"></div>
+    <img src="images/흠집종류.png" alt="흠집 종류 안내" style="border-radius:14px; margin-bottom:20px;" />
+    <div class="notice">
+      <p class="notice-head">📌 실속형이란?</p>
       <ul>
         <li>크기, 모양이 제각각인 사과입니다</li>
-        <li>형태에 비뚤은 특성이 있으면 <strong>가정용</strong>으로 분류되며,<br />가정용보다 외형적 특성이 적은 사과는 <strong>실속형</strong>으로 분류됩니다</li>
+        <li>형태에 비뚤은 특성이 있으면 <strong>가정용</strong>으로 분류되며, 가정용보다 외형적 특성이 적은 사과는 <strong>실속형</strong>으로 분류됩니다</li>
         <li>현재 상품은 <strong>실속형 부사사과</strong>입니다</li>
-        <li>맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 인해 실속형으로 판매됩니다</li>
+        <li>맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 실속형으로 판매됩니다</li>
       </ul>
-      <span class="caution-tag">⚠️ 위 사유로는 반품이 불가능합니다 — 구매 전 참고해주세요</span>
+      <div class="alert-tag">⚠️ 위 사유로는 반품이 불가능합니다 — 구매 전 참고해주세요</div>
     </div>
-    <div style="margin-top:20px;">
-      <img src="images/실속형대량.jpeg" alt="실속형 대량" style="border-radius:12px;" />
+    <div style="margin-top:18px;">
+      <img src="images/실속형대량.jpeg" alt="실속형 대량" style="border-radius:14px;" />
     </div>
   </section>
 
   <div class="hr"></div>
 
-  <!-- ════════════════════════════════
-       5. 사이즈 안내
-  ════════════════════════════════ -->
-  <section class="section">
-    <p class="section-label">SIZE GUIDE</p>
-    <h2 class="section-title">부사사과<br />사이즈 안내</h2>
-    <div class="divider"></div>
-    <img src="images/부사사과사이즈안내.png" alt="부사사과 사이즈 안내" style="border-radius:12px; margin-bottom:16px;" />
+  <!-- ══════ 사이즈 안내 ══════ -->
+  <section class="sec">
+    <p class="eyebrow">SIZE GUIDE</p>
+    <h2 class="sec-title">부사사과 사이즈 안내</h2>
+    <div class="rule"></div>
+    <img src="images/부사사과사이즈안내.png" alt="부사사과 사이즈 안내" style="border-radius:14px; margin-bottom:16px;" />
     <div class="size-note">
       🍎 <strong>농산물 특성상</strong> 모양과 크기는 다소 차이가 있을 수 있습니다.<br />
       신선 농산물 특성상 모양 / 크기는 다소 차이가 있을 수 있으니 양해 부탁드립니다.
@@ -650,80 +623,74 @@
 
   <div class="hr"></div>
 
-  <!-- ════════════════════════════════
-       6. 포장 안내 (텍스트만)
-  ════════════════════════════════ -->
-  <section class="section">
-    <p class="section-label">PACKAGING</p>
-    <h2 class="section-title">상품 포장 안내</h2>
-    <div class="divider"></div>
-    <div class="packaging-card">
-      <div class="icon">📦</div>
-      <p class="title">안전하고 신속하게</p>
-      <p class="desc">
+  <!-- ══════ 포장 안내 ══════ -->
+  <section class="sec sec-alt">
+    <p class="eyebrow">PACKAGING</p>
+    <h2 class="sec-title">상품 포장 안내</h2>
+    <div class="rule"></div>
+    <div class="pkg">
+      <div class="pkg-icon">📦</div>
+      <p class="pkg-title">안전하고 신속하게</p>
+      <p class="pkg-desc">
         규격에 맞는 박스에 포장하여<br />
         안전하게 배송해드립니다
       </p>
-      <p class="note">※ 산지 상황에 따라 포장 방식은 변경될 수 있습니다</p>
+      <p class="pkg-note">※ 산지 상황에 따라 포장 방식은 변경될 수 있습니다</p>
     </div>
   </section>
 
   <div class="hr"></div>
 
-  <!-- ════════════════════════════════
-       7. 보관 꿀팁
-  ════════════════════════════════ -->
-  <section class="section section-alt">
-    <p class="section-label">STORAGE TIP</p>
-    <h2 class="section-title">보관 꿀팁</h2>
-    <div class="divider"></div>
-    <div class="tip-grid">
-      <div class="tip-card">
-        <div class="tip-head">
-          <span class="tip-icon">🌡️</span>
-          <span class="tip-title">냉장 보관법</span>
+  <!-- ══════ 보관 꿀팁 ══════ -->
+  <section class="sec">
+    <p class="eyebrow">STORAGE TIP</p>
+    <h2 class="sec-title">보관 꿀팁</h2>
+    <div class="rule"></div>
+    <div class="tips">
+      <div class="tip">
+        <div class="tip-icon">🌡️</div>
+        <div class="tip-body">
+          <p class="t-ttl">냉장 보관법</p>
+          <ul>
+            <li>신문지나 랩으로 낱개 포장</li>
+            <li>0~1°C 김치냉장고에 보관</li>
+          </ul>
         </div>
-        <ul class="tip-body">
-          <li>신문지나 랩으로 낱개 포장</li>
-          <li>0~1°C 김치냉장고에 보관</li>
-        </ul>
       </div>
-      <div class="tip-card">
-        <div class="tip-head">
-          <span class="tip-icon">✅</span>
-          <span class="tip-title">오랫동안 아삭하게 보관하는 법</span>
+      <div class="tip">
+        <div class="tip-icon">✅</div>
+        <div class="tip-body">
+          <p class="t-ttl">오랫동안 아삭하게 보관하는 법</p>
+          <ul>
+            <li>냉기로 하나씩 낱개로 감싸 꺼내 수분 증발 및 다른 과일과의 냄새 방지</li>
+            <li>사과에서 나오는 에틸렌 가스가 다른 과일을 물르게 하므로 사과만 따로 보관</li>
+            <li>에틸렌 가스 배출을 위해 비닐봉지에 밀봉하지 마세요</li>
+          </ul>
         </div>
-        <ul class="tip-body">
-          <li>냉기로 하나씩 낱개로 감싸 꺼내 수분 증발 및 다른 과일과의 냄새 방지</li>
-          <li>사과에서 나오는 에틸렌 가스가 다른 과일을 쉽게 물르게 하므로 사과만 따로 보관</li>
-          <li>에틸렌 가스 배출을 위해 비닐봉지에 밀봉하지 마세요</li>
-        </ul>
       </div>
     </div>
   </section>
 
   <div class="hr"></div>
 
-  <!-- ════════════════════════════════
-       8. CS 안내
-  ════════════════════════════════ -->
-  <section class="section cs-section">
-    <p class="section-label">CUSTOMER SERVICE</p>
-    <h2 class="section-title">꼭 확인해주세요</h2>
-    <div class="divider"></div>
-    <img src="images/CS관련안내및상품안내.png" alt="CS 안내" style="border-radius:12px; margin-bottom:20px;" />
+  <!-- ══════ CS 안내 ══════ -->
+  <section class="sec sec-alt">
+    <p class="eyebrow">CUSTOMER SERVICE</p>
+    <h2 class="sec-title">꼭 확인해주세요</h2>
+    <div class="rule"></div>
+    <img src="images/CS관련안내및상품안내.png" alt="CS 안내" style="border-radius:14px; margin-bottom:20px;" />
 
-    <div class="notice-box" style="margin-bottom:14px;">
-      <p class="notice-title">📸 파손 및 품질 문제 시</p>
+    <div class="notice" style="margin-bottom:12px;">
+      <p class="notice-head">📸 파손 및 품질 문제 시</p>
       <ul>
-        <li>꼭 <strong>3장의 사진</strong>을 찍어주세요<br />(전체 과수 사진 + 배송장 사진 + 불량 상품 사진)</li>
+        <li>꼭 <strong>3장의 사진</strong>을 찍어주세요 (전체 과수 사진 + 배송장 사진 + 불량 상품 사진)</li>
         <li>수령 후 <strong>24시간 이내</strong> 총 3컷 촬영 후 고객센터 접수 시에만 환불 또는 부분 환불 가능</li>
-        <li>전체 과수는 전체 과이비 비례하여 부분 환불 처리됩니다</li>
+        <li>전체 과수는 전체 과 비례하여 부분 환불 처리됩니다</li>
       </ul>
     </div>
 
-    <div class="notice-box" style="border-color:#ffaaaa; margin-bottom:14px;">
-      <p class="notice-title" style="color:#c0392b;">🚫 환불·부분환불 불가한 경우</p>
+    <div class="notice warn" style="margin-bottom:12px;">
+      <p class="notice-head">🚫 환불·부분환불 불가한 경우</p>
       <ul>
         <li>하자 발생 상품 사진을 첨부하지 않은 경우</li>
         <li>상품 수령 24시간 이후 및 연락 착신 불가 경우</li>
@@ -732,10 +699,10 @@
       </ul>
     </div>
 
-    <div class="notice-box">
-      <p class="notice-title">📋 상품 안내</p>
+    <div class="notice">
+      <p class="notice-head">📋 상품 안내</p>
       <ul>
-        <li>가정용 부사사과는 맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 인해 실속형으로 판매됩니다</li>
+        <li>실속형 부사사과는 맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 실속형으로 판매됩니다</li>
         <li>미세 및 자연적인 흠집, 울퉁불퉁한 외관, 가벼운 병으로 인한 사유로 교환은 불가합니다</li>
       </ul>
     </div>
@@ -743,13 +710,11 @@
 
   <div class="hr"></div>
 
-  <!-- ════════════════════════════════
-       9. 하단 마무리
-  ════════════════════════════════ -->
-  <footer class="footer-banner">
-    <p class="footer-brand">lu<span>main</span></p>
-    <div class="footer-line"></div>
-    <p class="footer-copy">
+  <!-- ══════ FOOTER ══════ -->
+  <footer class="foot">
+    <p class="foot-logo">lu<span>main</span></p>
+    <div class="foot-rule"></div>
+    <p class="foot-copy">
       사람이 직접 맛을 보고 고른 신선함,<br />
       AI의 도움으로 더 스마트하게 연결합니다
     </p>
