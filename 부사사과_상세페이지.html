@@ -347,22 +347,108 @@
     }
 
     /* ═══ FOOTER ═══ */
+    /* ═══ BRAND SECTION ═══ */
+    .brand-sec {
+      background: #0D0D0D;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-glow {
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(192,57,43,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .brand-logo-wrap {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .brand-logo {
+      display: inline-block;
+      font-size: 36px; font-weight: 900;
+      color: #fff; letter-spacing: 5px;
+    }
+    .brand-logo span { color: #E84E6C; }
+    .brand-logo-sub {
+      display: block;
+      font-size: 9px; font-weight: 500;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 3px; margin-top: 6px;
+    }
+    .brand-rule {
+      width: 36px; height: 1px;
+      background: linear-gradient(to right, transparent, #C0392B, transparent);
+      margin: 0 auto 32px;
+    }
+    .brand-headline {
+      font-size: 20px; font-weight: 900;
+      color: #fff; line-height: 1.45;
+      text-align: center; margin-bottom: 20px;
+    }
+    .brand-headline em {
+      display: block; font-style: normal;
+      color: #FF8FA3;
+    }
+    .brand-body {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      line-height: 2; text-align: center;
+      margin-bottom: 36px;
+    }
+    .brand-pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-bottom: 36px;
+    }
+    .brand-pillar {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 18px 10px;
+      text-align: center;
+    }
+    .bp-icon { font-size: 22px; margin-bottom: 8px; }
+    .bp-label {
+      font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+    .bp-desc {
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px; line-height: 1.5;
+    }
+    .brand-quote {
+      background: rgba(192,57,43,0.12);
+      border: 1px solid rgba(192,57,43,0.25);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .brand-quote p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+    }
+    .brand-quote strong {
+      display: block;
+      color: #FF8FA3;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* ═══ FOOTER ═══ */
     .foot {
-      background: #0A0202;
-      padding: 52px 24px; text-align: center;
-    }
-    .foot-logo {
-      font-size: 30px; font-weight: 900;
-      color: #fff; letter-spacing: 4px; margin-bottom: 10px;
-    }
-    .foot-logo span { color: #E84E6C; }
-    .foot-rule {
-      width: 36px; height: 2px;
-      background: #C0392B; margin: 14px auto;
+      background: #070202;
+      padding: 28px 24px; text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
     .foot-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3); line-height: 1.9;
+      font-size: 11px;
+      color: rgba(255,255,255,0.2); line-height: 1.8;
     }
 
     .hr { height: 6px; background: #F0F0F0; }
@@ -431,8 +517,9 @@
     <p class="cred-body">
       농부가 직접 키우고, 직접 고릅니다.<br />
       실속형이라는 이름 뒤에는 특품과 똑같은 당도,<br />
-      똑같은 아삭함이 담겨 있습니다.<br />
-      사람이 직접 맛을 보고, AI의 도움으로 더 정확하게 연결합니다.
+      똑같은 아삭함이 담겨 있습니다.<br /><br />
+      lumain은 <strong style="color:#C0392B;">좋은 것을 진심으로 연결하고 싶다</strong>는 마음에서 시작했습니다.<br />
+      사람이 직접 맛을 보고 고르고, AI가 더 정확하게 연결합니다.
     </p>
     <div class="cred-badges">
       <div class="cred-badge">✅ 맛·품질 동일</div>
@@ -710,13 +797,59 @@
 
   <div class="hr"></div>
 
+  <!-- ══════ BRAND PHILOSOPHY ══════ -->
+  <section class="brand-sec">
+    <div class="brand-glow"></div>
+
+    <div class="brand-logo-wrap">
+      <p class="brand-logo">lu<span>main</span></p>
+      <span class="brand-logo-sub">ILLUMINATE · CONNECT · GROW</span>
+    </div>
+    <div class="brand-rule"></div>
+
+    <h2 class="brand-headline">
+      AI로 세상을 밝히고,<br />
+      <em>새로운 길을 열어가다</em>
+    </h2>
+    <p class="brand-body">
+      저희는 단순히 상품을 파는 곳이 아닙니다.<br />
+      좋은 것을 진심으로 연결하고 싶다는 마음에서 시작했습니다.<br /><br />
+      농부의 땀과 자연의 시간이 담긴 사과를,<br />
+      사람의 감각으로 고르고 AI의 힘으로 더 정확하게 전달합니다.<br />
+      그것이 lumain이 걷는 길입니다.
+    </p>
+
+    <div class="brand-pillars">
+      <div class="brand-pillar">
+        <div class="bp-icon">❤️</div>
+        <div class="bp-label">진정성</div>
+        <div class="bp-desc">좋은 것을<br />연결하는 진심</div>
+      </div>
+      <div class="brand-pillar">
+        <div class="bp-icon">🤝</div>
+        <div class="bp-label">사람 × AI</div>
+        <div class="bp-desc">감각과 기술의<br />조화</div>
+      </div>
+      <div class="brand-pillar">
+        <div class="bp-icon">✨</div>
+        <div class="bp-label">새로운 길</div>
+        <div class="bp-desc">더 나은 연결을<br />향한 도전</div>
+      </div>
+    </div>
+
+    <div class="brand-quote">
+      <strong>"밝은 세상을 만드는 가장 작은 시작"</strong>
+      <p>
+        좋은 먹거리를 제대로 연결하는 것.<br />
+        그 진심 하나로, lumain은 오늘도 새로운 길을 엽니다.
+      </p>
+    </div>
+  </section>
+
   <!-- ══════ FOOTER ══════ -->
   <footer class="foot">
-    <p class="foot-logo">lu<span>main</span></p>
-    <div class="foot-rule"></div>
     <p class="foot-copy">
-      사람이 직접 맛을 보고 고른 신선함,<br />
-      AI의 도움으로 더 스마트하게 연결합니다
+      © lumain · 사람이 고르고, AI가 연결합니다
     </p>
   </footer>
 
