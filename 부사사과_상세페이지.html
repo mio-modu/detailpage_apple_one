@@ -30,6 +30,7 @@
       padding: 48px 24px 0;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
     .hero-c1 {
       position: absolute; top: -70px; right: -70px;
@@ -70,6 +71,7 @@
     .hero-sub {
       font-size: 13px; color: rgba(255,255,255,0.55);
       line-height: 1.8; margin-bottom: 28px;
+      text-align: left;
     }
     .hero-meta {
       display: flex; gap: 0; margin-bottom: 32px;
@@ -109,16 +111,37 @@
       letter-spacing: 0.5px; text-align: center; line-height: 1.4;
     }
 
+    /* ═══ OPTIONS ═══ */
+    .opt-list { display: flex; flex-direction: column; gap: 10px; }
+    .opt-card {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #fff; border: 1.5px solid #F0E0E2; border-radius: 14px;
+      padding: 16px 18px;
+      box-shadow: 0 2px 14px rgba(192,57,43,0.05);
+    }
+    .opt-name { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .opt-desc { font-size: 11px; color: #888; }
+    .opt-r { text-align: right; flex-shrink: 0; padding-left: 14px; }
+    .opt-ship {
+      display: inline-block; background: #FFF0F3; color: #C0392B;
+      font-size: 10px; font-weight: 700; padding: 2px 9px;
+      border-radius: 4px; margin-bottom: 6px;
+    }
+    .opt-price { font-size: 19px; font-weight: 900; color: #C0392B; white-space: nowrap; }
+    .opt-price sub { font-size: 11px; font-weight: 500; vertical-align: baseline; margin-left: 1px; }
+
     /* ═══ CREDENTIAL ═══ */
     .credential { padding: 44px 24px 36px; }
     .eyebrow {
       font-size: 10px; font-weight: 700;
       letter-spacing: 3px; color: #C0392B; margin-bottom: 10px;
+      text-align: center;
     }
     .eyebrow.dim { color: rgba(255,255,255,0.35); }
     .cred-title {
       font-size: 25px; font-weight: 900;
       line-height: 1.35; color: #1a1a1a; margin-bottom: 16px;
+      text-align: center;
     }
     .cred-title span { color: #C0392B; }
     .cred-body {
@@ -162,13 +185,14 @@
     .sec-title {
       font-size: 24px; font-weight: 900;
       line-height: 1.35; color: #1a1a1a; margin-bottom: 6px;
+      text-align: center;
     }
     .sec-title.w { color: #fff; }
 
     .rule {
       width: 32px; height: 3px;
       background: #C0392B; border-radius: 2px;
-      margin: 10px 0 22px;
+      margin: 10px auto 22px;
     }
     .rule.dim { background: rgba(255,255,255,0.22); }
 
@@ -509,6 +533,47 @@
       <span class="tl">안전<br/>포장</span>
     </div>
   </div>
+
+  <!-- ══════ 구매 옵션 ══════ -->
+  <section class="sec">
+    <p class="eyebrow">CHOOSE YOUR OPTION</p>
+    <h2 class="sec-title">구매 옵션 안내</h2>
+    <div class="rule"></div>
+    <div class="opt-list">
+      <div class="opt-card">
+        <div class="opt-l">
+          <p class="opt-name">중소과 3kg</p>
+          <p class="opt-desc">15~18과 내외</p>
+        </div>
+        <div class="opt-r">
+          <span class="opt-ship">무료배송</span>
+          <p class="opt-price">19,000<sub>원</sub></p>
+        </div>
+      </div>
+      <div class="opt-card">
+        <div class="opt-l">
+          <p class="opt-name">중소과 5kg</p>
+          <p class="opt-desc">25~30과 내외</p>
+        </div>
+        <div class="opt-r">
+          <span class="opt-ship">무료배송</span>
+          <p class="opt-price">26,000<sub>원</sub></p>
+        </div>
+      </div>
+      <div class="opt-card">
+        <div class="opt-l">
+          <p class="opt-name">중과 5kg</p>
+          <p class="opt-desc">20과 내외</p>
+        </div>
+        <div class="opt-r">
+          <span class="opt-ship">무료배송</span>
+          <p class="opt-price">31,000<sub>원</sub></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr"></div>
 
   <!-- ══════ CREDENTIAL ══════ -->
   <section class="credential">
