@@ -20,20 +20,27 @@
       width: 100%;
     }
     .page {
-      max-width: 860px;
-      width: 860px;
+      max-width: 1080px;
+      width: 1080px;
       margin: 0 auto;
       padding: 0;
       background: #fff;
+    }
+    .wrap-narrow {
+      max-width: 640px;
+      margin: 0 auto;
     }
 
     /* ═══ HERO ═══ */
     .hero {
       background: linear-gradient(170deg, #140606 0%, #3B0D0D 55%, #5A1A1A 100%);
-      padding: 48px 24px 0;
+      padding: 64px 56px;
       position: relative;
       overflow: hidden;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      align-items: center;
+      gap: 48px;
     }
     .hero-c1 {
       position: absolute; top: -70px; right: -70px;
@@ -45,6 +52,7 @@
       width: 160px; height: 160px; border-radius: 50%;
       background: rgba(220,60,60,0.06);
     }
+    .hero-text { position: relative; z-index: 1; text-align: left; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(220,60,60,0.18);
@@ -64,22 +72,23 @@
       padding: 3px 10px; border-radius: 4px; margin-bottom: 14px;
     }
     .hero-title {
-      font-size: 36px; font-weight: 900;
-      color: #fff; line-height: 1.2;
-      letter-spacing: -0.5px; margin-bottom: 14px;
+      font-size: 42px; font-weight: 900;
+      color: #fff; line-height: 1.22;
+      letter-spacing: -0.5px; margin-bottom: 16px;
     }
     .hero-title em {
       display: block; font-style: normal; color: #FF8FA3;
     }
     .hero-sub {
-      font-size: 13px; color: rgba(255,255,255,0.55);
-      line-height: 1.8; margin-bottom: 28px;
+      font-size: 14px; color: rgba(255,255,255,0.55);
+      line-height: 1.85; margin-bottom: 30px;
       text-align: left;
     }
     .hero-meta {
-      display: flex; gap: 0; margin-bottom: 32px;
+      display: flex; gap: 0;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px; overflow: hidden;
+      max-width: 420px;
     }
     .hero-meta-item {
       flex: 1; padding: 14px 10px; text-align: center;
@@ -93,7 +102,11 @@
     .hero-meta-item .val {
       font-size: 12px; font-weight: 700; color: #fff;
     }
-    .hero-img { margin: 0 -24px; position: relative; z-index: 1; }
+    .hero-img {
+      position: relative; z-index: 1;
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
 
     /* ═══ TRUST STRIP ═══ */
     .trust-strip {
@@ -115,16 +128,16 @@
     }
 
     /* ═══ OPTIONS ═══ */
-    .opt-list { display: flex; flex-direction: column; gap: 10px; }
+    .opt-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .opt-card {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
       background: #fff; border: 1.5px solid #F0E0E2; border-radius: 14px;
-      padding: 16px 18px;
+      padding: 20px 20px 18px;
       box-shadow: 0 2px 14px rgba(192,57,43,0.05);
     }
-    .opt-name { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .opt-name { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
     .opt-desc { font-size: 11px; color: #888; }
-    .opt-r { text-align: right; flex-shrink: 0; padding-left: 14px; }
+    .opt-r { text-align: left; flex-shrink: 0; }
     .opt-ship {
       display: inline-block; background: #FFF0F3; color: #C0392B;
       font-size: 10px; font-weight: 700; padding: 2px 9px;
@@ -200,9 +213,9 @@
     .rule.dim { background: rgba(255,255,255,0.22); }
 
     /* ═══ REASON CARDS ═══ */
-    .reasons { display: flex; flex-direction: column; gap: 12px; }
+    .reasons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .reason {
-      display: grid; grid-template-columns: 60px 1fr;
+      display: flex; flex-direction: column;
       background: #fff; border-radius: 16px; overflow: hidden;
       border: 1px solid #EEE0E2;
       box-shadow: 0 2px 14px rgba(192,57,43,0.05);
@@ -210,12 +223,13 @@
     .r-num {
       background: linear-gradient(180deg, #C0392B, #922B21);
       display: flex; align-items: center; justify-content: center;
+      padding: 12px;
     }
     .r-num span {
-      font-size: 26px; font-weight: 900;
-      color: rgba(255,255,255,0.18); letter-spacing: -1px;
+      font-size: 24px; font-weight: 900;
+      color: rgba(255,255,255,0.3); letter-spacing: -1px;
     }
-    .r-body { padding: 18px 16px; }
+    .r-body { padding: 18px 16px; flex: 1; }
     .r-title {
       font-size: 15px; font-weight: 700;
       color: #1a1a1a; margin-bottom: 5px;
@@ -228,61 +242,76 @@
       padding: 3px 9px; border-radius: 4px; margin-top: 7px;
     }
 
-    /* ═══ STORY STEPS ═══ */
-    .steps { margin-top: 24px; }
-    .step {
-      display: grid; grid-template-columns: 48px 1fr;
-      gap: 16px; padding-bottom: 30px;
+    /* ═══ STORY STEPS (with real farm photos) ═══ */
+    .story-rows { margin-top: 28px; }
+    .story-row {
+      display: grid; grid-template-columns: 320px 1fr;
+      gap: 40px; align-items: center;
+      padding: 26px 0;
+      border-bottom: 1px dashed #F0DDE0;
     }
-    .step:last-child { padding-bottom: 0; }
-    .step-l { display: flex; flex-direction: column; align-items: center; }
-    .step-dot {
-      width: 48px; height: 48px; border-radius: 50%;
+    .story-row:first-child { padding-top: 0; }
+    .story-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .story-row.flip { grid-template-columns: 1fr 320px; }
+    .story-row.flip .story-photo { order: 2; }
+    .story-row.flip .story-text { order: 1; }
+    .story-photo {
+      position: relative; border-radius: 18px; overflow: hidden;
+      box-shadow: 0 14px 34px rgba(192,57,43,0.14);
+    }
+    .story-photo img {
+      width: 100%; aspect-ratio: 4 / 3.15; object-fit: cover; display: block;
+    }
+    .story-badge {
+      position: absolute; top: 14px; left: 14px;
+      width: 46px; height: 46px; border-radius: 50%;
       background: #C0392B; color: #fff;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      line-height: 1.1; flex-shrink: 0; z-index: 1;
+      line-height: 1.1; box-shadow: 0 6px 16px rgba(0,0,0,0.3);
     }
-    .step-dot .sn { font-size: 7px; opacity: 0.65; font-weight: 600; }
-    .step-dot .sv { font-size: 15px; font-weight: 900; }
-    .step-line {
-      flex: 1; width: 2px; margin-top: 6px; min-height: 16px;
-      background: linear-gradient(to bottom, #C0392B, #F4AFA8);
+    .story-badge .sn { font-size: 7px; opacity: 0.7; font-weight: 600; }
+    .story-badge .sv { font-size: 16px; font-weight: 900; }
+    .story-text .s-ttl {
+      font-size: 20px; font-weight: 800;
+      color: #1a1a1a; margin-bottom: 10px;
     }
-    .step:last-child .step-line { display: none; }
-    .step-r { padding-top: 10px; }
-    .step-r .s-ttl {
-      font-size: 15px; font-weight: 700;
-      color: #1a1a1a; margin-bottom: 4px;
-    }
-    .step-r .s-desc { font-size: 12px; color: #888; line-height: 1.7; }
+    .story-text .s-desc { font-size: 13.5px; color: #888; line-height: 1.85; }
     .story-cta {
       background: linear-gradient(135deg, #C0392B, #922B21);
-      border-radius: 16px; padding: 20px;
+      border-radius: 16px; padding: 22px;
       text-align: center; color: #fff;
-      font-size: 14px; font-weight: 700;
-      margin-top: 28px; letter-spacing: 0.3px;
+      font-size: 15px; font-weight: 700;
+      margin-top: 30px; letter-spacing: 0.3px;
+    }
+    .story-field {
+      position: relative; margin-top: 16px;
+      border-radius: 16px; overflow: hidden;
+    }
+    .story-field img {
+      width: 100%; height: 150px; object-fit: cover; display: block;
+    }
+    .story-field::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(20,6,6,0.75) 0%, rgba(20,6,6,0.15) 55%, transparent 100%);
+    }
+    .story-field-cap {
+      position: absolute; left: 20px; bottom: 14px; z-index: 1;
+      color: #fff; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.3px; opacity: 0.85;
     }
 
     /* ═══ USAGE (dark) ═══ */
     .usage-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 10px; margin-top: 20px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin-top: 20px;
     }
     .u-card {
       background: #1C1C1C; border-radius: 14px;
       overflow: hidden; border: 1px solid #282828;
     }
-    .u-card.wide {
-      grid-column: 1 / -1;
-      display: grid; grid-template-columns: 1fr 1fr;
-    }
     .u-card img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-    .u-card.wide img { aspect-ratio: unset; }
-    .u-info { padding: 14px; }
-    .u-card.wide .u-info {
-      display: flex; flex-direction: column; justify-content: center;
-    }
+    .u-info { padding: 16px; }
     .u-tag {
       display: inline-block;
       background: #C0392B; color: #fff;
@@ -291,6 +320,16 @@
     }
     .u-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
     .u-desc { font-size: 11px; color: #666; line-height: 1.6; }
+
+    /* ═══ PAIRED IMAGES / NOTICE GRID ═══ */
+    .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+    .img-pair img { border-radius: 14px; }
+    .img-pair figcaption {
+      font-size: 11px; color: #999; text-align: center;
+      margin-top: 8px; letter-spacing: 0.3px;
+    }
+    .notice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .notice-grid .notice { margin-top: 0; }
 
     /* ═══ NOTICE ═══ */
     .notice {
@@ -347,7 +386,7 @@
     .pkg-note { margin-top: 14px; font-size: 11px; color: rgba(255,255,255,0.35); }
 
     /* ═══ TIPS ═══ */
-    .tips { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .tips { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 20px; align-items: start; }
     .tip {
       display: flex; gap: 14px; align-items: flex-start;
       background: #fff; border-radius: 14px; padding: 20px;
@@ -459,6 +498,7 @@
       color: rgba(255,255,255,0.65);
       line-height: 1.9;
     }
+    .brand-inner { max-width: 760px; margin: 0 auto; }
     .brand-quote strong {
       display: block;
       color: #FF8FA3;
@@ -488,28 +528,30 @@
   <section class="hero">
     <div class="hero-c1"></div>
     <div class="hero-c2"></div>
-    <div class="hero-eyebrow">PREMIUM BUSA APPLE · 산지직송</div>
-    <div class="hero-tag">실속형</div>
-    <h1 class="hero-title">
-      농부의 손으로 고른<br />
-      <em>부사 사과</em>
-    </h1>
-    <p class="hero-sub">
-      겉모습보다 맛으로 승부합니다.<br />
-      꼼꼼히 선별된 산지 직송 부사사과를 만나보세요.
-    </p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="lbl">원산지</div>
-        <div class="val">대한민국</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="lbl">배송</div>
-        <div class="val">무료배송</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="lbl">발주마감</div>
-        <div class="val">09:30</div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">PREMIUM BUSA APPLE · 산지직송</div>
+      <div class="hero-tag">실속형</div>
+      <h1 class="hero-title">
+        농부의 손으로 고른<br />
+        <em>부사 사과</em>
+      </h1>
+      <p class="hero-sub">
+        겉모습보다 맛으로 승부합니다.<br />
+        꼼꼼히 선별된 산지 직송 부사사과를 만나보세요.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="lbl">원산지</div>
+          <div class="val">대한민국</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="lbl">배송</div>
+          <div class="val">무료배송</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="lbl">발주마감</div>
+          <div class="val">09:30</div>
+        </div>
       </div>
     </div>
     <div class="hero-img">
@@ -582,18 +624,20 @@
   <section class="credential">
     <p class="eyebrow">WHY TRUST US</p>
     <h2 class="cred-title">겉모습이 아닌 <span>맛</span>으로<br />증명하는 부사사과</h2>
-    <p class="cred-body">
-      농부가 직접 키우고, 직접 고릅니다.<br />
-      실속형이라는 이름 뒤에는 특품과 똑같은 당도,<br />
-      똑같은 아삭함이 담겨 있습니다.<br /><br />
-      lumain은 <strong style="color:#C0392B;">좋은 것을 진심으로 연결하고 싶다</strong>는 마음에서 시작했습니다.<br />
-      농부의 땀과 자연의 시간이 담긴 사과를, 정성껏 전달합니다.
-    </p>
-    <div class="cred-badges">
-      <div class="cred-badge">✅ 맛·품질 동일</div>
-      <div class="cred-badge">🌱 친환경 재배</div>
-      <div class="cred-badge">📍 산지직송</div>
-      <div class="cred-badge">💯 당일 선별</div>
+    <div class="wrap-narrow">
+      <p class="cred-body">
+        농부가 직접 키우고, 직접 고릅니다.<br />
+        실속형이라는 이름 뒤에는 특품과 똑같은 당도,<br />
+        똑같은 아삭함이 담겨 있습니다.<br /><br />
+        lumain은 <strong style="color:#C0392B;">좋은 것을 진심으로 연결하고 싶다</strong>는 마음에서 시작했습니다.<br />
+        농부의 땀과 자연의 시간이 담긴 사과를, 정성껏 전달합니다.
+      </p>
+      <div class="cred-badges" style="justify-content:center;">
+        <div class="cred-badge">✅ 맛·품질 동일</div>
+        <div class="cred-badge">🌱 친환경 재배</div>
+        <div class="cred-badge">📍 산지직송</div>
+        <div class="cred-badge">💯 당일 선별</div>
+      </div>
     </div>
   </section>
 
@@ -655,50 +699,54 @@
     <p class="eyebrow">OUR STORY</p>
     <h2 class="sec-title">햇살 듬뿍 받고<br />자란 부사 사과</h2>
     <div class="rule"></div>
-    <p style="font-size:13px; color:#999; line-height:1.7; margin-bottom:4px;">산지에서 식탁까지, 정성 가득한 4가지 과정</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-l">
-          <div class="step-dot"><span class="sn">STEP</span><span class="sv">01</span></div>
-          <div class="step-line"></div>
+    <p style="font-size:13px; color:#999; line-height:1.7; margin-bottom:4px; text-align:center;">산지에서 식탁까지, 정성 가득한 4가지 과정</p>
+    <div class="story-rows">
+      <div class="story-row">
+        <div class="story-photo">
+          <img src="images/story-1-orchard.jpg" alt="햇살 받고 자라는 부사 사과 과수원" />
+          <div class="story-badge"><span class="sn">STEP</span><span class="sv">01</span></div>
         </div>
-        <div class="step-r">
-          <p class="s-ttl">친환경 재배</p>
-          <p class="s-desc">비옥한 토양에서 햇살 듬뿍 받고<br />자연 그대로 키운 사과</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-l">
-          <div class="step-dot"><span class="sn">STEP</span><span class="sv">02</span></div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-r">
-          <p class="s-ttl">꼼꼼한 선별</p>
-          <p class="s-desc">잘 익은 사과 위주로 확인하여<br />하나하나 손으로 선별</p>
+        <div class="story-text">
+          <p class="s-ttl">🌱 친환경 재배</p>
+          <p class="s-desc">비옥한 토양에서 햇살 듬뿍 받고<br />자연 그대로 키운 사과입니다.</p>
         </div>
       </div>
-      <div class="step">
-        <div class="step-l">
-          <div class="step-dot"><span class="sn">STEP</span><span class="sv">03</span></div>
-          <div class="step-line"></div>
+      <div class="story-row flip">
+        <div class="story-photo">
+          <img src="images/story-2-farmer.jpg" alt="농부가 직접 사과를 수확하는 모습" />
+          <div class="story-badge"><span class="sn">STEP</span><span class="sv">02</span></div>
         </div>
-        <div class="step-r">
-          <p class="s-ttl">안전한 포장</p>
-          <p class="s-desc">전용 사과박스에 안전하게 포장하여<br />파손 없이 배송 준비</p>
+        <div class="story-text">
+          <p class="s-ttl">👐 꼼꼼한 선별</p>
+          <p class="s-desc">잘 익은 사과 위주로 확인하여<br />농부가 하나하나 손으로 직접 선별합니다.</p>
         </div>
       </div>
-      <div class="step">
-        <div class="step-l">
-          <div class="step-dot"><span class="sn">STEP</span><span class="sv">04</span></div>
-          <div class="step-line"></div>
+      <div class="story-row">
+        <div class="story-photo">
+          <img src="images/story-3-boxed.jpg" alt="선별을 마치고 박스에 담긴 부사 사과" />
+          <div class="story-badge"><span class="sn">STEP</span><span class="sv">03</span></div>
         </div>
-        <div class="step-r">
-          <p class="s-ttl">신선 배송</p>
-          <p class="s-desc">자연의 싱싱함 그대로<br />빠르고 안전하게 배송</p>
+        <div class="story-text">
+          <p class="s-ttl">📦 안전한 포장</p>
+          <p class="s-desc">전용 사과박스에 안전하게 포장하여<br />파손 없이 배송을 준비합니다.</p>
+        </div>
+      </div>
+      <div class="story-row flip">
+        <div class="story-photo">
+          <img src="images/story-4-basket.jpg" alt="싱싱하게 도착한 부사 사과 바구니" />
+          <div class="story-badge"><span class="sn">STEP</span><span class="sv">04</span></div>
+        </div>
+        <div class="story-text">
+          <p class="s-ttl">🚚 신선 배송</p>
+          <p class="s-desc">자연의 싱싱함 그대로<br />빠르고 안전하게 배송해드립니다.</p>
         </div>
       </div>
     </div>
     <div class="story-cta">🚚 집 앞까지 도착하는 아삭한 부사사과!</div>
+    <div class="story-field">
+      <img src="images/story-5-field.jpg" alt="부사 사과가 자라는 산지 과수원 전경" />
+      <p class="story-field-cap">📍 이 모든 여정이 시작되는, 정직한 사과밭</p>
+    </div>
   </section>
 
   <div class="hr"></div>
@@ -728,7 +776,7 @@
           <p class="u-desc">소중한 분께 정성을</p>
         </div>
       </div>
-      <div class="u-card wide">
+      <div class="u-card">
         <img src="images/부사 사과 - 쥬스용 썸네일.png" alt="주스용" />
         <div class="u-info">
           <div class="u-tag">JUICE</div>
@@ -746,19 +794,27 @@
     <p class="eyebrow">ABOUT 실속형</p>
     <h2 class="sec-title">실속형 부사사과 안내</h2>
     <div class="rule"></div>
-    <img src="images/흠집종류.png" alt="흠집 종류 안내" style="border-radius:14px; margin-bottom:20px;" />
-    <div class="notice">
-      <p class="notice-head">📌 실속형이란?</p>
-      <ul>
-        <li>크기, 모양이 제각각인 사과입니다</li>
-        <li>형태에 비뚤은 특성이 있으면 <strong>가정용</strong>으로 분류되며, 가정용보다 외형적 특성이 적은 사과는 <strong>실속형</strong>으로 분류됩니다</li>
-        <li>현재 상품은 <strong>실속형 부사사과</strong>입니다</li>
-        <li>맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 실속형으로 판매됩니다</li>
-      </ul>
-      <div class="alert-tag">⚠️ 위 사유로는 반품이 불가능합니다 — 구매 전 참고해주세요</div>
+    <div class="wrap-narrow">
+      <div class="notice">
+        <p class="notice-head">📌 실속형이란?</p>
+        <ul>
+          <li>크기, 모양이 제각각인 사과입니다</li>
+          <li>형태에 비뚤은 특성이 있으면 <strong>가정용</strong>으로 분류되며, 가정용보다 외형적 특성이 적은 사과는 <strong>실속형</strong>으로 분류됩니다</li>
+          <li>현재 상품은 <strong>실속형 부사사과</strong>입니다</li>
+          <li>맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 실속형으로 판매됩니다</li>
+        </ul>
+        <div class="alert-tag">⚠️ 위 사유로는 반품이 불가능합니다 — 구매 전 참고해주세요</div>
+      </div>
     </div>
-    <div style="margin-top:18px;">
-      <img src="images/실속형대량.jpeg" alt="실속형 대량" style="border-radius:14px;" />
+    <div class="img-pair" style="margin-top:22px;">
+      <figure>
+        <img src="images/흠집종류.png" alt="흠집 종류 안내" />
+        <figcaption>실속형 사과에 나타날 수 있는 흠집 종류</figcaption>
+      </figure>
+      <figure>
+        <img src="images/실속형대량.jpeg" alt="실속형 대량" />
+        <figcaption>실속형 부사사과 실제 모습</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -769,10 +825,12 @@
     <p class="eyebrow">SIZE GUIDE</p>
     <h2 class="sec-title">부사사과 사이즈 안내</h2>
     <div class="rule"></div>
-    <img src="images/부사사과사이즈안내.png" alt="부사사과 사이즈 안내" style="border-radius:14px; margin-bottom:16px;" />
-    <div class="size-note">
-      🍎 <strong>농산물 특성상</strong> 모양과 크기는 다소 차이가 있을 수 있습니다.<br />
-      신선 농산물 특성상 모양 / 크기는 다소 차이가 있을 수 있으니 양해 부탁드립니다.
+    <div class="wrap-narrow">
+      <img src="images/부사사과사이즈안내.png" alt="부사사과 사이즈 안내" style="border-radius:14px; margin-bottom:16px;" />
+      <div class="size-note">
+        🍎 <strong>농산물 특성상</strong> 모양과 크기는 다소 차이가 있을 수 있습니다.<br />
+        신선 농산물 특성상 모양 / 크기는 다소 차이가 있을 수 있으니 양해 부탁드립니다.
+      </div>
     </div>
   </section>
 
@@ -783,14 +841,16 @@
     <p class="eyebrow">PACKAGING</p>
     <h2 class="sec-title">상품 포장 안내</h2>
     <div class="rule"></div>
-    <div class="pkg">
-      <div class="pkg-icon">📦</div>
-      <p class="pkg-title">안전하고 신속하게</p>
-      <p class="pkg-desc">
-        규격에 맞는 박스에 포장하여<br />
-        안전하게 배송해드립니다
-      </p>
-      <p class="pkg-note">※ 산지 상황에 따라 포장 방식은 변경될 수 있습니다</p>
+    <div class="wrap-narrow">
+      <div class="pkg">
+        <div class="pkg-icon">📦</div>
+        <p class="pkg-title">안전하고 신속하게</p>
+        <p class="pkg-desc">
+          규격에 맞는 박스에 포장하여<br />
+          안전하게 배송해드립니다
+        </p>
+        <p class="pkg-note">※ 산지 상황에 따라 포장 방식은 변경될 수 있습니다</p>
+      </div>
     </div>
   </section>
 
@@ -833,33 +893,35 @@
     <p class="eyebrow">CUSTOMER SERVICE</p>
     <h2 class="sec-title">꼭 확인해주세요</h2>
     <div class="rule"></div>
-    <img src="images/CS관련안내및상품안내.png" alt="CS 안내" style="border-radius:14px; margin-bottom:20px;" />
+    <img src="images/CS관련안내및상품안내.png" alt="CS 안내" style="border-radius:14px; margin:0 auto 28px; display:block; max-width:460px; width:100%;" />
 
-    <div class="notice" style="margin-bottom:12px;">
-      <p class="notice-head">📸 파손 및 품질 문제 시</p>
-      <ul>
-        <li>꼭 <strong>3장의 사진</strong>을 찍어주세요 (전체 과수 사진 + 배송장 사진 + 불량 상품 사진)</li>
-        <li>수령 후 <strong>24시간 이내</strong> 총 3컷 촬영 후 고객센터 접수 시에만 환불 또는 부분 환불 가능</li>
-        <li>전체 과수는 전체 과 비례하여 부분 환불 처리됩니다</li>
-      </ul>
-    </div>
+    <div class="notice-grid">
+      <div class="notice">
+        <p class="notice-head">📸 파손 및 품질 문제 시</p>
+        <ul>
+          <li>꼭 <strong>3장의 사진</strong>을 찍어주세요 (전체 과수 사진 + 배송장 사진 + 불량 상품 사진)</li>
+          <li>수령 후 <strong>24시간 이내</strong> 총 3컷 촬영 후 고객센터 접수 시에만 환불 또는 부분 환불 가능</li>
+          <li>전체 과수는 전체 과 비례하여 부분 환불 처리됩니다</li>
+        </ul>
+      </div>
 
-    <div class="notice warn" style="margin-bottom:12px;">
-      <p class="notice-head">🚫 환불·부분환불 불가한 경우</p>
-      <ul>
-        <li>하자 발생 상품 사진을 첨부하지 않은 경우</li>
-        <li>상품 수령 24시간 이후 및 연락 착신 불가 경우</li>
-        <li>보관 부주의, 모양/색상/맛 등 주관적 사유로 인한 경우</li>
-        <li>단순 변심으로 인한 경우</li>
-      </ul>
-    </div>
+      <div class="notice warn">
+        <p class="notice-head">🚫 환불·부분환불 불가한 경우</p>
+        <ul>
+          <li>하자 발생 상품 사진을 첨부하지 않은 경우</li>
+          <li>상품 수령 24시간 이후 및 연락 착신 불가 경우</li>
+          <li>보관 부주의, 모양/색상/맛 등 주관적 사유로 인한 경우</li>
+          <li>단순 변심으로 인한 경우</li>
+        </ul>
+      </div>
 
-    <div class="notice">
-      <p class="notice-head">📋 상품 안내</p>
-      <ul>
-        <li>실속형 부사사과는 맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 실속형으로 판매됩니다</li>
-        <li>미세 및 자연적인 흠집, 울퉁불퉁한 외관, 가벼운 병으로 인한 사유로 교환은 불가합니다</li>
-      </ul>
+      <div class="notice">
+        <p class="notice-head">📋 상품 안내</p>
+        <ul>
+          <li>실속형 부사사과는 맛과 품질은 똑같이 뛰어나지만 미세한 흠집, 울퉁불퉁한 외관, 수확 시 생기는 자연적인 흠집 등으로 실속형으로 판매됩니다</li>
+          <li>미세 및 자연적인 흠집, 울퉁불퉁한 외관, 가벼운 병으로 인한 사유로 교환은 불가합니다</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -875,42 +937,44 @@
     </div>
     <div class="brand-rule"></div>
 
-    <h2 class="brand-headline">
-      정성으로 세상을 밝히고,<br />
-      <em>새로운 길을 열어가다</em>
-    </h2>
-    <p class="brand-body">
-      저희는 단순히 상품을 파는 곳이 아닙니다.<br />
-      좋은 것을 진심으로 연결하고 싶다는 마음에서 시작했습니다.<br /><br />
-      농부의 땀과 자연의 시간이 담긴 사과를,<br />
-      정성껏 전달합니다.<br />
-      그것이 lumain이 걷는 길입니다.
-    </p>
-
-    <div class="brand-pillars">
-      <div class="brand-pillar">
-        <div class="bp-icon">❤️</div>
-        <div class="bp-label">진정성</div>
-        <div class="bp-desc">좋은 것을<br />연결하는 진심</div>
-      </div>
-      <div class="brand-pillar">
-        <div class="bp-icon">🤝</div>
-        <div class="bp-label">사람 × 정성</div>
-        <div class="bp-desc">감각과 정성의<br />조화</div>
-      </div>
-      <div class="brand-pillar">
-        <div class="bp-icon">✨</div>
-        <div class="bp-label">새로운 길</div>
-        <div class="bp-desc">더 나은 연결을<br />향한 도전</div>
-      </div>
-    </div>
-
-    <div class="brand-quote">
-      <strong>"밝은 세상을 만드는 가장 작은 시작"</strong>
-      <p>
-        좋은 먹거리를 제대로 연결하는 것.<br />
-        그 진심 하나로, lumain은 오늘도 새로운 길을 엽니다.
+    <div class="brand-inner">
+      <h2 class="brand-headline">
+        정성으로 세상을 밝히고,<br />
+        <em>새로운 길을 열어가다</em>
+      </h2>
+      <p class="brand-body">
+        저희는 단순히 상품을 파는 곳이 아닙니다.<br />
+        좋은 것을 진심으로 연결하고 싶다는 마음에서 시작했습니다.<br /><br />
+        농부의 땀과 자연의 시간이 담긴 사과를,<br />
+        정성껏 전달합니다.<br />
+        그것이 lumain이 걷는 길입니다.
       </p>
+
+      <div class="brand-pillars">
+        <div class="brand-pillar">
+          <div class="bp-icon">❤️</div>
+          <div class="bp-label">진정성</div>
+          <div class="bp-desc">좋은 것을<br />연결하는 진심</div>
+        </div>
+        <div class="brand-pillar">
+          <div class="bp-icon">🤝</div>
+          <div class="bp-label">사람 × 정성</div>
+          <div class="bp-desc">감각과 정성의<br />조화</div>
+        </div>
+        <div class="brand-pillar">
+          <div class="bp-icon">✨</div>
+          <div class="bp-label">새로운 길</div>
+          <div class="bp-desc">더 나은 연결을<br />향한 도전</div>
+        </div>
+      </div>
+
+      <div class="brand-quote">
+        <strong>"밝은 세상을 만드는 가장 작은 시작"</strong>
+        <p>
+          좋은 먹거리를 제대로 연결하는 것.<br />
+          그 진심 하나로, lumain은 오늘도 새로운 길을 엽니다.
+        </p>
+      </div>
     </div>
   </section>
 
